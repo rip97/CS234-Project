@@ -1,0 +1,58 @@
+Bank Account Program
+We're creating a BankAccount Program that will allow users to create open a Bank Account. Our program allows for users to select the 1 of 4 types of account they could open: Checking, Savings, an IRA and a Certificate of Deposit. When a user selects their account type, they will then be able to enter basic demographic information. The user is able to them specify their initial deposit amount (if any). 
+The different account types and their information will be displayed to ensure the user knows what is offered with each account type.
+
+Account Holder Class
+This class will house the user's demographic information that was entered upon account creation. Different mutator methods will be used to modify variables within this class.
+
+Checking Account Class
+	Users will be able to open a checking account, which will inherit from the BankAccount superclass. This will allow users to withdrawal or deposit funds into their accounts. There will be 3 different types of accounts: a Standard, College and a Premium checking account. The College and Premium accounts will be subclasses of the Checking Account class. 
+	Within the Checking class 4 new variables will be created. First, a final static OVERDRAFT_FEE variable to apply to all account and is set to $35 which an account can incur if a withdrawal amount exceeds the account balance. Each checking account will have a variable called withdrawalLimit which will vary by account type. The Standard account will have a limit of $300, College checking $200 and $500 for the Premium account. Next, there is a monthlyFee variable for all account types which will be set based on the account type. Lastly, each account will be able to specify how much interest is earned which will be stored in the interestPercent variable.
+	All checking accounts will use the get and set mutator methods to specify the fee each account can charged. The monthly fees can be waived if the account balance is above a threshold of $1000 and the college checking will automatically waive the fee using the setMonthlyFee() method. 
+	Similar to the get and set methods for the monthly fee, there will also be 2 interest percent methods to update and view how much interest each account can earn. The standard account will have an interest rate of 0.10% APY, college will have 0.05% APY and the premium will have an interest rate of 1.01% APY.
+	There will be a method to check the withdrawal limit of each account which will prevent the user from attempting to withdrawal funds that exceed the amount. It will prompt them to enter a new amount equal to or below their limit.
+	The last method is a toString method that will print out the account type, balance and interest rate. The College and Premium accounts will overwrite the Checking toString method to display a different message.
+Savings Account Class
+There are three different savings account classes: Standard Savings, High Yield Savings (HY) and a Certificate of Deposit(CD). The standard savings account will inherit from the Bank account class. The High Yield Savings and Certificate of Deposit will inherit from the standard savings account.
+
+The savings account will have a minimum deposit of $50 dollars and will have an 0.15% annual percentage yield (APY). It will have a monthly withdrawal/transfer limit to 9 per month. There is a withdrawal fee of $5 dollars
+The variables are interest rate: double, withdrawal fee: double and withdrawal limit: int
+If user withdrawals a fee of 5 dollars will be added to the withdrawal amount
+If user attempts to transfer or withdrawal past the transfer limit then it will produce a statement that says user as exceeded the amount and it will not transfer or withdrawal.
+
+The high yield savings will have a minimum deposit of $500 dollars and will have an 0.40% APY. It will have a monthly withdrawal/transfer limit to 5 per month. There is a withdrawal fee inherited from standard savings
+The variables are interest rate: double and withdrawal limit: int
+If user withdrawals, a fee of 5 dollars will be added to the withdrawal amount.
+If user attempts to transfer or withdrawal past the transfer limit then it will produce a statement that says user as exceeded the amount and it will not transfer or withdrawal.
+
+The CD will have three plans for 12 months, 24 months, and 48 months to 72 months, with fixed interest rates of 0.45%,0.70%,and 0.80% APY. The minimum deposit is 1,000 and you can't add additional deposits to this CD once established. 
+There is a early withdrawal penalty of 90 days of interest on the CD balance for 12 month CD and 180 days of interest on the CD balance for 24 or more month CDs. 
+The variables are numberOfCDMaturityMonths: int; interest rates: double  
+IF user withdrawals early, the total amount must be withdrawn minus the 90 days or 180 days of interest to the CD balance and the remaining balance will be displayed and printed on how much the user will be receiving. The CD account will then close once withdrawn.
+IF user meets the CD maturity date: It will show the balance with interest and print how much the user will be receiving.  The CD account will then close once withdrawn.
+
+
+IRA Class
+Bank Account Classes
+IRA 
+Class IRA will be one of the accounts types an account holder can have. It will have two sub classes Roth and Traditional. The super class IRA will inherit from the Bank Account class so that the methods in Bank Account can be used in the IRA subclass. 
+IRA will have the variables: Age: Double, birthdate: String, and TaxIncomeAmt: Double. These variables are necessary for a user to create an IRA account and will be shared between the two subclasses Roth and traditional. The methods of IRA will be: 
+•	a constructor IRA with parameters:  birthdate and TaxIncomeAmt to create the object IRA 
+•	deterineAge will determine an accounts holder age from their birthdate to the current date and assign it to the variable age. 
+•	contributionCheck will check the account holders amount in the IRA and see if they have gone over the allowed contribution: 6000 for those under 59.5 and 7000 to those above 59.5, if the user is over the limit, print a message to the user
+•	toString will print the IRA account information to the user 
+IRA-Roth 
+Class Roth will be a Roth IRA account and inherits from IRA.  This class will be a bit smaller with just one variable of grossIncome as an int. This is to ensure the account holder has a gross income for this account to be open. The methods will be: 
+•	A constructor Roth that has one parameter of int grossIncome so a user can open this account type.
+•	toString will return a string of information of the account holders Roth IRA account 
+IRA Traditional 
+Class Traditional will inherit from IRA and be a Traditional IRA account. This class will have the variables minDistribution: Double, requiredAge: double, and a constant PENTALY: Double. minDistribution will be the minimum distribution of funds an account hold needs to receive, requiredAge will be the required age that an account holder has to be to start receiving funds and PENTALTY will be a 10 percent penalty on early withdraws. The methods are: 
+•	A default constructor of Traditional
+•	Distribution will figure out the minimum distribution via the IRS formula to figure our IRA distribution and set the amount into misDistribution 
+•	checkyPentaly will check when age if the user wants to withdraw money to see if they’re doing an early withdraw and tax them 10 percent if true 
+•	checkRequiredAge will determine the required age for the user to start receiving funds, which is 70 years of age.
+•	toString will give the information of this account
+•	getDistribution will return a the minimum distribution variable 
+
+
+
