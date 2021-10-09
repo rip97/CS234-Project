@@ -33,8 +33,6 @@ IF user meets the CD maturity date: It will show the balance with interest and p
 
 
 IRA Class
-Bank Account Classes
-IRA 
 Class IRA will be one of the accounts types an account holder can have. It will have two sub classes Roth and Traditional. The super class IRA will inherit from the Bank Account class so that the methods in Bank Account can be used in the IRA subclass. 
 IRA will have the variables: Age: Double, birthdate: String, and TaxIncomeAmt: Double. These variables are necessary for a user to create an IRA account and will be shared between the two subclasses Roth and traditional. The methods of IRA will be: 
 •	a constructor IRA with parameters:  birthdate and TaxIncomeAmt to create the object IRA 
